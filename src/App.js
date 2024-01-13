@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useSelector } from "react-redux";
+import CardPage from "./pages/create-card";
+import FormAddBooks from "./components/Form";
+import store from "./redux/store";
+import { Provider } from "react-redux";
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Routes>
+        <Route path="/form" element={<FormAddBooks />} />
+
+        <Route path="/cards" element={<CardPage/>} />
+      </Routes>
+    </Router>
+  )
 }
+
 
 export default App;
